@@ -14,11 +14,10 @@ interface NewsCardProps {
 }
 
 const Newslist: FC<NewsCardProps> = () => {
-    const searchParams = useSearchParams();
     const dispatch = useDispatch()
     const news = useSelector((state: RootState) => state.news.news)
     const limit = 10;
-    const [page, setPage] = useState(searchParams.get("page") || 1);
+    const [page, setPage] = useState(1);
 
     async function loadNews() {
         await dispatch(fetchNews({page, limit}));
