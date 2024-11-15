@@ -6,11 +6,19 @@ const NewsSchema = new mongoose.Schema({
         required: [true, 'Please provide a title for this news.'],
         maxlength: [60, 'Title cannot be more than 60 characters'],
     },
-    content: {
+    short_description: {
         type: String,
         required: true,
     },
-    date: {
+    description: {
+        type: String,
+        required: true,
+    },
+    image: {
+      type: String,
+      required: false,
+    },
+    created_at: {
         type: Date,
         default: Date.now,
     },
